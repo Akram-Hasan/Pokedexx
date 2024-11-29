@@ -1,0 +1,146 @@
+
+
+.pokemon-feed {
+  margin-top: 6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem;
+}
+
+.card {
+  background: linear-gradient(145deg, #1e2635, #273040);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.2),
+    0 6px 10px rgba(0, 0, 0, 0.15);
+  transform: perspective(1000px) translateZ(0);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg, 
+    transparent, 
+    rgba(255,255,255,0.1), 
+    transparent
+  );
+  transform: rotate(-45deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: scale(1.05) perspective(1000px) translateZ(20px);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  filter: brightness(1.1) saturate(1.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.card .text {
+  width: 100%;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.card .pokeId {
+  font-size: 0.7rem;
+  margin-right: 5px;
+  font-weight: 300;
+  color: #7e84a3;
+  letter-spacing: 1px;
+}
+
+.card .name {
+  text-transform: capitalize;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1200px) {
+  .pokemon-feed {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    padding: 0 1.5rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .pokemon-feed {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .pokemon-feed {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.8rem;
+    padding: 0 0.5rem;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .card img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .card .name {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .pokemon-feed {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    padding: 0 0.3rem;
+  }
+  
+  .card {
+    padding: 10px;
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+  }
+}
