@@ -1,6 +1,6 @@
 # A Full Fledged Pokédex using ReactJS
 
-Live Preview: https://react-pokedex-drab.vercel.app/
+Live Preview: https://pokedexx-zeta.vercel.app/
 
 Some shots:
 
